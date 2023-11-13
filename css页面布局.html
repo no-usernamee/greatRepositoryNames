@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 清除浮动（高度塌陷），同时解决外边距塌陷问题 */
+      .clearfix::before,
+      .clearfix::after {
+        content: '';
+        display: table;
+      }
+      .clearfix::after {
+        clear: both;
+        /* 兼容低版本浏览器 */
+        height: 0;
+        visibility: hidden;
+      }
+
+      body {
+        /* 继承 */
+        text-align: center;
+      }
+
+      .contenter {
+        margin: 0 auto;
+        padding: 10px;
+        width: 800px;
+        border: 1px solid #000;
+      }
+
+      .banner {
+        /* text-align: center; */
+        margin: 5px 0;
+        border: 1px solid #000;
+        background-color: #fc3;
+      }
+
+      .father {
+        width: 100%;
+        display: flex;
+        margin-bottom: 5px;
+      }
+      .content {
+        margin-right: 5px;
+        /* text-align: center; */
+        width: 570px;
+        height: 300px;
+        border: 1px solid #000;
+      }
+
+      .links {
+        flex: 1;
+        /* text-align: center; */
+        border: 1px solid #000;
+      }
+
+      .footer {
+        /* text-align: center; */
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenter">
+      contenter
+      <div class="banner">banner</div>
+      <div class="father clearfix">
+        <div class="content">content</div>
+        <div class="links">links</div>
+      </div>
+      <div class="footer">footer</div>
+    </div>
+  </body>
+</html>
